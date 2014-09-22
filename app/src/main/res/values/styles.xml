@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- Indicates whether this window should fill the entire screen -->
+    </style>
+
+</resources>
