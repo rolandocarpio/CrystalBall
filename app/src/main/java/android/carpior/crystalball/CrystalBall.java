@@ -34,9 +34,7 @@ public class CrystalBall extends Activity {
             float delta = currentAcceleration - previousAcceleration;
             acceleration = acceleration * 0.9f + delta;
 
-            if(acceleration > 17) {
-                Toast toast = Toast.makeText(getApplication(), "Device has shaken", Toast.LENGTH_SHORT);
-                toast.show();
+            if(acceleration > 15) {
                 answerText = (TextView) findViewById(R.id.answerText);
                 answerText.setText(Predictions.get().getPrediction());
             }
