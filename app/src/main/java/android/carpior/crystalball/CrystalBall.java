@@ -34,9 +34,11 @@ public class CrystalBall extends Activity {
             float delta = currentAcceleration - previousAcceleration;
             acceleration = acceleration * 0.9f + delta;
 
-            if(acceleration > 15) {
+            if(acceleration > 17) {
                 Toast toast = Toast.makeText(getApplication(), "Device has shaken", Toast.LENGTH_SHORT);
                 toast.show();
+                answerText = (TextView) findViewById(R.id.answerText);
+                answerText.setText(Predictions.get().getPrediction());
             }
         }
 
@@ -58,18 +60,12 @@ public class CrystalBall extends Activity {
         currentAcceleration = SensorManager.GRAVITY_EARTH;
         previousAcceleration = SensorManager.GRAVITY_EARTH;
 
-        answerText = (TextView) findViewById(R.id.answerText);
-        answerText.setText(Predictions.get().getPrediction());
-    }
-
-    public CrystalBall() {
-        super();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(sensorListener, accelerometer, sensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(sensorListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
