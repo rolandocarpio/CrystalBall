@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.FloatMath;
 import android.widget.TextView;
@@ -35,6 +36,8 @@ public class CrystalBall extends Activity {
             acceleration = acceleration * 0.9f + delta;
 
             if(acceleration > 15) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.crystal_ball);
+                mediaPlayer.start();
                 answerText = (TextView) findViewById(R.id.answerText);
                 answerText.setText(Predictions.get().getPrediction());
             }
